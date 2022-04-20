@@ -1,4 +1,14 @@
-import { createContext } from 'react';
+import React, { useContext, useState } from 'react';
 
-// you can pass empty string or object
-export const LoginContext = createContext({});
+const LoginContext = React.createContext();
+
+export function useLogin() {
+	return useContext(LoginContext);
+}
+
+export function LoginProvider({ children }) {
+	const [showProfile, setShowProfile] = useState(false);
+	const [username, setUsername] = useState('');
+
+	return <LoginContext.Provider value={{ username, setUsername, showProfile, setShowProfile }}>{children}</LoginContext.Provider>;
+}

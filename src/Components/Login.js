@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { LoginContext } from '../Contexts/LoginContext';
+import React from 'react';
+import { useLogin } from '../Contexts/LoginContext';
 
 function Login() {
-	const { setUsername, setShowProfile } = useContext(LoginContext);
+	const { setUsername, setShowProfile } = useLogin();
 
 	return (
 		<>
